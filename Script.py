@@ -1,6 +1,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import os
+import subprocess
 
 class Ui_MainWindow(object):
 
@@ -76,15 +77,25 @@ class Ui_MainWindow(object):
     def worker(self):
         tr1 = self.lineEdit_2.text()
         tr2 = self.lineEdit.text()
-       
         try:
-         os.system(f"py -m PyQt5.uic.pyuic -x {tr1} -o {tr2}.py")
+
+         try:
+            if os.system(f'py -m PyQt5.uic.pyuic -x "{tr1}" -o {tr2}.py')==0:
+                pass
+            else:
+            
+                if os.system(f'python -m PyQt5.uic.pyuic -x "{tr1}" -o {tr2}.py')==0:
+            
+                 pass
+                else:
+                    if os.system(f'python3 -m PyQt5.uic.pyuic -x "{tr1}" -o {tr2}.py')==0:
+                        pass
+
+
+         except:
+             pass
         except:
-            os.system(f"python -m PyQt5.uic.pyuic -x {tr1} -o {tr2}.py")
-        try:
-            os.system(f"python3 -m PyQt5.uic.pyuic -x {tr1} -o {tr2}.py")
-        except:
-            pass
+            pass   
 
         
             
