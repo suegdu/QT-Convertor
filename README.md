@@ -1,5 +1,5 @@
 # QT-Convertor
-Basic Converting From QT .ui Files To .py Source With A Nice gui
+Basic Converting From QT .ui Files To .py Source With A gui
 
 
 
